@@ -3,10 +3,10 @@
 How to usage
 ---------------
 1. cd $GOPATH
-2. git clone https://git.hepsiburada.com/erebor/torc.git
+2. git clone https://github.com/bilalislam/torc.git
 
 ```go
-import "git.hepsiburada.com/erebor/torc"
+import "github.com/bilalislam/torc"
 ```
 
 go mod update version 
