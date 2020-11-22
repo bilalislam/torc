@@ -107,8 +107,3 @@ How to using swagger in golang
 How to loggin in golang
 -------------------------
 1. https://godoc.org/go.uber.org/zap
-
-Known issues
--------------------------
-* open https://git.hepsiburada.com/erebor/basket/erebor.basket.contracts
-* read to readme file
