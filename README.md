@@ -16,14 +16,14 @@ https://medium.com/faun/managing-dependency-and-module-versioning-using-go-modul
 Go package management
 -------------------------
 1. Enable go modules from setting go module
-2. go mod init git.hepsiburada.com/erebor/torc
+2. go mod init torc
 3. go mod tidy for optimize  all dependencies
 Not: By the way this process must for dockerizing of this app
 
 For example;
 ```sh
 $ cd root folder
-$ go mod init git.hepsiburada.com/erebor/torc
+$ go mod init torc
 $ go mod tidy
 ```
 
@@ -37,10 +37,10 @@ Dockerizing looks like as followings
 # Based on this image: https:/hub.docker.com/_/golang/
 FROM golang:latest as builder
 
-RUN mkdir -p /go/src/git.hepsiburada.com/erebor/basket/erebor.basket.consumers.basketupdated
-WORKDIR /go/src/git.hepsiburada.com/erebor/basket/erebor.basket.consumers.basketupdated
+RUN mkdir -p /go/src/github.com/bilalislam/xxxx
+WORKDIR /go/src/github.com/bilalislam/xxxx
 
-RUN git config --global url."https://cem.basaranoglu:TzW_3JesxtbwjuyLD1KG@git.hepsiburada.com".insteadOf "https://git.hepsiburada.com"
+RUN git config --global url."https://bilalislam:e759a33264bc283b8f448135c3008fb62c6319bb@github.com".insteadOf "https://github.com"
 # Force the go compiler to use modules
 ENV GO111MODULE on
 # <- COPY go.mod and go.sum files to the workspace
@@ -56,7 +56,7 @@ COPY . .
 # Compile application
 RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o basket-updated
 
-RUN chmod +x /go/src/git.hepsiburada.com/erebor/basket/erebor.basket.consumers.basketupdated
+RUN chmod +x /go/src/github.com/eshop-consumers/xxxx
 
 #Image Diff
 #(Not Scratch) 1.23GB
@@ -64,7 +64,7 @@ RUN chmod +x /go/src/git.hepsiburada.com/erebor/basket/erebor.basket.consumers.b
 # <- Second step to build minimal image
 FROM scratch
 WORKDIR /root/
-COPY --from=builder /go/src/git.hepsiburada.com/erebor/basket/erebor.basket.consumers.basketupdated .
+COPY --from=builder /go/src/github.com/bilalislam/xxxx .
 ENV ENV_FILE qa
 # Execite application when container is started
 CMD ["./basket-updated"]
