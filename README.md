@@ -104,6 +104,6 @@ How to using swagger in golang
 ---------------------------
 1. https://github.com/swaggo/swag
 
-How to loggin in golang
+How to logging in golang
 -------------------------
 1. https://godoc.org/go.uber.org/zap
