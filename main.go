@@ -35,7 +35,7 @@ const (
 type State string
 
 var (
-	nodes = flag.String("nodes", "http://127.0.0.1:9200", "comma-separated list of ES URLs (e.g. 'http://127.0.0.1:9200')")
+	nodes = flag.String("nodes", "http://127.0.0.1", "comma-separated list of ES URLs (e.g. 'http://127.0.0.1:9200')")
 )
 
 func main() {
@@ -65,7 +65,8 @@ func main() {
 			return err
 		}
 
-		err = repository.Save(ctx, consumeMessage)
+		now := time.Now()
+		err = repository.Index(ctx, "syslog-"+now.Format("2006.01.02"), consumeMessage)
 		if err != nil {
 			return err
 		}
