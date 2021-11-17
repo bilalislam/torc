@@ -35,7 +35,7 @@ const (
 type State string
 
 var (
-	nodes = flag.String("nodes", "http://10.2.24.85:9200,http://10.2.24.188:9200,http://10.2.24.189:9200", "comma-separated list of ES URLs (e.g. 'http://10.2.24.85:9200,http://10.2.24.188:9200,http://10.2.24.189:9200')")
+	nodes = flag.String("nodes", "http://127.0.0.1:9200", "comma-separated list of ES URLs (e.g. 'http://127.0.0.1:9200')")
 )
 
 func main() {
